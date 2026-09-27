@@ -1,37 +1,43 @@
-# Wallet Connect App (Plain HTML/CSS/JS)
+# Bubblee - Official Reown AppKit (Web3Modal) Vite JavaScript
 
-A fully editable wallet connect UI (like the WalletConnect / Web3Modal "Connect Wallet" popup),
-built with **plain HTML, CSS, and JavaScript** — no TypeScript, no build tools, no npm install needed.
+This project uses the **official Reown AppKit** (formerly Web3Modal) so you get the real modal UI/UX.
 
-## How to run
+## Quick start
 
-1. Download/clone this repo.
-2. Open `index.html` directly in your browser (double-click it), **or** serve it locally:
-   ```bash
-   npx serve .
-   ```
-3. Click "Connect Wallet" to see the modal.
+```bash
+npm install
+npm run dev
+```
 
-## How to set it up
+Open the local URL shown in terminal (usually `http://localhost:5173`).
 
-1. Get a free WalletConnect Project ID at https://cloud.reown.com
-2. Open `app.js` and replace:
-   ```javascript
-   const WALLETCONNECT_PROJECT_ID = 'YOUR_PROJECT_ID_HERE';
-   ```
-   with your real project ID.
-3. That's it — MetaMask/injected wallets work immediately with no extra setup.
+## Configure your Project ID
 
-## How to customize
+1. Create a free project at Reown Cloud.
+2. Copy your Project ID.
+3. Create a `.env` file in project root:
 
-- **Colors & layout** → edit `style.css`
-- **Which wallets appear, icons, labels, tags** → edit the `WALLET_CONFIG` array at the top of `app.js`
-- **Text/copy** → edit `index.html`
+```bash
+cp .env.example .env
+```
 
-## Files
+4. Put your ID in `.env`:
 
-- `index.html` — page structure and modal markup
-- `style.css` — all styling (dark theme, matches the WalletConnect look)
-- `app.js` — all logic: rendering wallet list, connecting via MetaMask/injected wallets or WalletConnect QR, disconnect handling
+```env
+VITE_REOWN_PROJECT_ID=YOUR_REAL_PROJECT_ID
+```
 
-No React, no TypeScript, no bundler — just open and edit.
+Restart dev server after changing `.env`.
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Notes
+
+- This is **JavaScript** (not TypeScript).
+- UI modal is the official AppKit modal (exact family of UI you requested).
+- You can style your page around it in `src/styles.css`.
